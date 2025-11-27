@@ -1,0 +1,39 @@
+name: SkyLighting
+main: com.lukesky.Main
+version: 1.0
+author: Luke
+description: >
+  8XD Quadrant Frame Ping Sky Engine (Layer 3).
+  LIGHT / SHADE / COLOR quadrants; NumPy backend sky.
+
+commands:
+  skyomega:
+    description: Show your current omega scalar and fade.
+    usage: /<command>
+    permission: skylighting.omega
+  skyquad:
+    description: Show quadrant + LIGHT/SHADE/COLOR mode for you.
+    usage: /<command>
+    permission: skylighting.quadrant
+  skyres:
+    description: Tell the server your screen resolution (width height).
+    usage: /<command> <width> <height>
+    permission: skylighting.resolution
+  skyframe:
+    description: Explicitly ping a frame; updates frame index and writes screen_quadrant_request.json.
+    usage: /<command>
+    permission: skylighting.frame
+
+permissions:
+  skylighting.omega:
+    description: Use /skyomega omega debug command.
+    default: true
+  skylighting.quadrant:
+    description: Use /skyquad to inspect quadrant layout and modes.
+    default: true
+  skylighting.resolution:
+    description: Use /skyres to send your resolution “ping up”.
+    default: true
+  skylighting.frame:
+    description: Use /skyframe for explicit frame pings.
+    default: true

@@ -1,0 +1,59 @@
+<!-- 8XD Quadrant Frame Ping Sky Engine POM (Layer 3) -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.lukesky</groupId>
+    <artifactId>SkyLighting</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>SkyLighting</name>
+    <description>
+      8XD Quadrant Frame Ping Sky Engine (Layer 3).
+
+      Java / Spigot:
+        • /skyomega  → omega scalar via digit reversal
+        • /skyquad   → quadrant + LIGHT/SHADE/COLOR mode
+        • /skyres    → client resolution ping (width/height)
+        • /skyframe  → explicit frame ping (2-way per-frame handshake)
+        • ResolutionState: per-player width/height + frame index
+        • QuadrantFrameExporter: writes screen_quadrant_request.json
+
+      Python / NumPy:
+        • screen_quadrant_mapper.py
+             - consumes player_resolution.json
+             - uses screen_quadrant_request.json (frame, player tag)
+             - computes quarter tile (TOP_LEFT) geometry
+        • screen_colormap_generator.py
+             - LIGHT  : white + color 4-checker
+             - SHADE  : black + color 4-checker
+             - COLOR  : pure color
+        • quadrant_channel_splitter.py
+             - splits LIGHT/SHADE/COLOR into separate 0–1 channels.
+    </description>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+          <id>spigot-repo</id>
+          <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+          <groupId>org.spigotmc</groupId>
+          <artifactId>spigot-api</artifactId>
+          <version>1.8.8-R0.1-SNAPSHOT</version>
+          <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
