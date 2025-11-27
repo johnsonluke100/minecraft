@@ -1,0 +1,14 @@
+name: SkyLighting
+version: 1.0
+main: com.lukesky.Main
+description: Minecraft 8XD — Sky / Hypercube / NumPy continuum backend
+author: Luke
+load: STARTUP
+commands:
+  skysay:
+    description: Simple test command for SkyLighting
+    usage: /skysay <message>
+    permission: skylighting.skysay
+permissions:
+  skylighting.skysay:
+    default: true

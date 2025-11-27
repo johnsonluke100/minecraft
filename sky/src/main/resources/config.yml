@@ -1,0 +1,10 @@
+sky:
+  enabled-by-default: false
+  max-radius: 64.0
+  min-radius: 4.0
+  particle-density: 1.0
+  supernova-rings: 12
+
+numpy:
+  json-path: Desktop/sky/bpm_sync.json
+  stale-warning-ms: 5000
